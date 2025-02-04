@@ -11,7 +11,7 @@ const Statistics = () => {
     axios
       .get("http://localhost:8000/stats")
       .then((res) => {
-        console.log("API Response:", res.data); // Debugging API response
+        // console.log("API Response:", res.data); // Debugging API response
 
         setChartData({
           bookingsByDate: {
@@ -28,14 +28,14 @@ const Statistics = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-gray-900/80 backdrop-blur-lg shadow-xl border border-gray-700 rounded-lg">
+    <div className="p-6 border border-gray-700 rounded-lg shadow-xl bg-gray-900/80 backdrop-blur-lg">
       <h2 className="mb-6 text-3xl font-bold text-center text-teal-400">
         📊 Booking Statistics
       </h2>
 
       {/* Bar Chart: Bookings Statistics */}
-      <div className="mt-6 p-4 bg-gray-800 rounded-lg shadow-md">
-        <h3 className="text-lg font-semibold text-gray-300 text-center">
+      <div className="p-4 bg-gray-800 rounded-lg shadow-md mt-7">
+        <h3 className="text-lg font-semibold text-center text-gray-300">
           📦 Total Bookings & Users
         </h3>
         <Chart
