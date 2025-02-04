@@ -38,7 +38,7 @@ const Banner = () => {
             <input
               type="text"
               placeholder="Track your parcel..."
-              className="w-full p-5 pr-16 text-black rounded-lg shadow-md focus:outline-none"
+              className="w-full p-4 pr-16 text-black rounded-lg shadow-md focus:outline-none"
             />
             <button className="absolute px-5 py-2 font-semibold text-white transition -translate-y-1/2 bg-blue-600 rounded-lg shadow-md top-1/2 right-2 hover:bg-blue-700">
               Search
