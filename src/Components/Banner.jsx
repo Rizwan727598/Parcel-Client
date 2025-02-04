@@ -17,30 +17,30 @@ const Banner = () => {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 text-center text-white px-6"
+        className="relative z-10 px-6 text-center text-white"
       >
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-wide">
+        <h1 className="text-5xl font-extrabold leading-tight tracking-wide md:text-7xl">
           The Future of Parcel Delivery 🚀
         </h1>
 
         {/* Subtext */}
-        <p className="mt-4 text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto">
+        <p className="max-w-2xl mx-auto mt-4 text-lg text-gray-300 md:text-2xl">
           Experience **faster, safer, and more reliable parcel deliveries.**
         </p>
 
         {/* Call-to-Action & Search Bar */}
-        <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-4">
-          <button className="px-6 py-3 text-lg font-semibold bg-blue-600 hover:bg-blue-700 rounded-lg shadow-lg transition duration-300">
+        <div className="flex flex-col items-center justify-center gap-4 mt-6 sm:flex-row">
+          <button className="px-6 py-3 text-lg font-semibold transition duration-300 bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700">
             Get Started
           </button>
           <div className="relative w-full max-w-md">
             <input
               type="text"
               placeholder="Track your parcel..."
-              className="w-full p-4 pr-16 text-black rounded-lg shadow-md focus:outline-none"
+              className="w-full p-5 pr-16 text-black rounded-lg shadow-md focus:outline-none"
             />
-            <button className="absolute top-1/2 right-2 -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow-md font-semibold transition">
+            <button className="absolute px-5 py-2 font-semibold text-white transition -translate-y-1/2 bg-blue-600 rounded-lg shadow-md top-1/2 right-2 hover:bg-blue-700">
               Search
             </button>
           </div>
