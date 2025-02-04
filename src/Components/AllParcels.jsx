@@ -55,10 +55,10 @@ const AllParcels = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 1, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-6 bg-gray-900/80 backdrop-blur-lg shadow-xl border border-gray-700 rounded-lg"
+      className="p-6 border border-gray-700 rounded-lg shadow-xl bg-gray-900/80 backdrop-blur-lg"
     >
       {/* Heading */}
       <h2 className="mb-6 text-3xl font-bold text-center text-teal-400">
@@ -66,9 +66,9 @@ const AllParcels = () => {
       </h2>
 
       {/* Responsive Table Wrapper */}
-      <div className="overflow-x-auto max-w-full">
+      <div className="max-w-full overflow-x-auto">
         <table className="w-full border-collapse min-w-[600px]">
-          <thead className="bg-gray-800 text-gray-300">
+          <thead className="text-gray-300 bg-gray-800">
             <tr>
               <th className="p-3 text-left whitespace-nowrap">User</th>
               <th className="p-3 text-left whitespace-nowrap">Phone</th>
@@ -85,7 +85,7 @@ const AllParcels = () => {
             {parcels.map((parcel) => (
               <tr
                 key={parcel._id}
-                className="border-t border-gray-700 hover:bg-gray-800 transition"
+                className="transition border-t border-gray-700 hover:bg-gray-800"
               >
                 <td className="p-3">{parcel.name}</td>
                 <td className="p-3">{parcel.phoneNumber}</td>
@@ -112,7 +112,7 @@ const AllParcels = () => {
                 <td className="p-3 text-center">
                   <button
                     onClick={() => handleManageParcel(parcel)}
-                    className="px-4 py-2 rounded-lg font-bold bg-teal-500 hover:bg-teal-600 transition text-white"
+                    className="px-4 py-2 font-bold text-white transition bg-teal-500 rounded-lg hover:bg-teal-600"
                   >
                     Manage
                   </button>
@@ -130,7 +130,7 @@ const AllParcels = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="p-6 bg-gray-900/80 backdrop-blur-lg shadow-xl border border-gray-700 rounded-lg max-w-md w-full"
+            className="w-full max-w-md p-6 border border-gray-700 rounded-lg shadow-xl bg-gray-900/80 backdrop-blur-lg"
           >
             <h3 className="mb-4 text-xl font-bold text-teal-400">
               🚚 Assign Delivery Man
@@ -141,7 +141,7 @@ const AllParcels = () => {
               Choose Delivery Man:
             </label>
             <select
-              className="w-full p-3 border border-teal-500 rounded-lg bg-gray-800 text-white"
+              className="w-full p-3 text-white bg-gray-800 border border-teal-500 rounded-lg"
               onChange={(e) => setAssignedDeliveryMan(e.target.value)}
             >
               <option value="">Select</option>
@@ -158,20 +158,20 @@ const AllParcels = () => {
             </label>
             <input
               type="date"
-              className="w-full p-3 border border-teal-500 rounded-lg bg-gray-800 text-white"
+              className="w-full p-3 text-white bg-gray-800 border border-teal-500 rounded-lg"
               onChange={(e) => setDeliveryDate(e.target.value)}
             />
 
             {/* Modal Actions */}
             <div className="flex justify-end mt-6 space-x-2">
               <button
-                className="px-4 py-2 rounded-lg font-bold bg-red-500 hover:bg-red-600 transition text-white"
+                className="px-4 py-2 font-bold text-white transition bg-red-500 rounded-lg hover:bg-red-600"
                 onClick={() => setShowModal(false)}
               >
                 ❌ Cancel
               </button>
               <button
-                className="px-4 py-2 rounded-lg font-bold bg-green-500 hover:bg-green-600 transition text-white"
+                className="px-4 py-2 font-bold text-white transition bg-green-500 rounded-lg hover:bg-green-600"
                 onClick={handleAssignDeliveryMan}
               >
                 ✅ Assign
