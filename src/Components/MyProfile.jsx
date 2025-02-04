@@ -58,13 +58,10 @@ const MyProfile = () => {
   const updateUserProfile = async (photoURL) => {
     try {
       await updateProfile(user, { displayName: formData.name, photoURL });
-      await axios.put(
-        `https://parcel-server-one.vercel.app/update-profile/${user.email}`,
-        {
-          name: formData.name,
-          photoURL,
-        }
-      );
+      await axios.put(`http://localhost:8000/update-profile/${user.email}`, {
+        name: formData.name,
+        photoURL,
+      });
 
       Swal.fire("Success", "Profile updated successfully!", "success").then(
         () => {

@@ -7,13 +7,13 @@ const AllUsers = () => {
 
   useEffect(() => {
     axios
-      .get("https://parcel-server-one.vercel.app/all-users")
+      .get("http://localhost:8000/all-users")
       .then((res) => setUsers(res.data))
       .catch(() => console.error("Error fetching users"));
   }, []);
 
   const promoteUser = async (id, role) => {
-    await axios.put(`https://parcel-server-one.vercel.app/promote-user/${id}`, {
+    await axios.put(`http://localhost:8000/promote-user/${id}`, {
       role,
     });
     setUsers(users.map((u) => (u._id === id ? { ...u, userType: role } : u)));

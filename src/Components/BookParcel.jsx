@@ -44,10 +44,7 @@ const BookParcel = () => {
     };
 
     try {
-      await axios.post(
-        "https://parcel-server-one.vercel.app/book-parcel",
-        newParcel
-      );
+      await axios.post("http://localhost:8000/book-parcel", newParcel);
       Swal.fire("Success", "Parcel booked successfully!", "success");
       setFormData({
         phoneNumber: "",

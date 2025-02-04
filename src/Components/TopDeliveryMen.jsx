@@ -7,7 +7,7 @@ const TopDeliveryMen = () => {
 
   useEffect(() => {
     axios
-      .get("https://parcel-server-one.vercel.app/top-delivery-men")
+      .get("http://localhost:8000/top-delivery-men")
       .then((res) => setTopDeliveryMen(res.data))
       .catch((err) =>
         console.error("❌ Error fetching top delivery men:", err)
@@ -26,7 +26,7 @@ const TopDeliveryMen = () => {
           {topDeliveryMen.map((man) => (
             <div
               key={man._id}
-              className="p-4 border rounded-lg shadow-lg bg-gray-100"
+              className="p-4 bg-gray-100 border rounded-lg shadow-lg"
             >
               <img
                 src={man.image || "/default-avatar.png"}

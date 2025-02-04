@@ -9,7 +9,7 @@ const Statistics = () => {
 
   useEffect(() => {
     axios
-      .get("https://parcel-server-one.vercel.app/stats")
+      .get("http://localhost:8000/stats")
       .then((res) => {
         console.log("API Response:", res.data); // Debugging API response
 

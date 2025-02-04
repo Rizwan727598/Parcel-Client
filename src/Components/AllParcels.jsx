@@ -13,12 +13,12 @@ const AllParcels = () => {
 
   useEffect(() => {
     axios
-      .get("https://parcel-server-one.vercel.app/all-parcels")
+      .get("http://localhost:8000/all-parcels")
       .then((res) => setParcels(res.data))
       .catch(() => Swal.fire("Error", "Failed to fetch parcels", "error"));
 
     axios
-      .get("https://parcel-server-one.vercel.app/delivery-men")
+      .get("http://localhost:8000/delivery-men")
       .then((res) => setDeliveryMen(res.data))
       .catch(() => Swal.fire("Error", "Failed to fetch delivery men", "error"));
   }, []);
@@ -39,7 +39,7 @@ const AllParcels = () => {
 
     try {
       await axios.put(
-        `https://parcel-server-one.vercel.app/assign-parcel/${selectedParcel._id}`,
+        `http://localhost:8000/assign-parcel/${selectedParcel._id}`,
         {
           deliveryManId: assignedDeliveryMan,
           approximateDeliveryDate: deliveryDate,

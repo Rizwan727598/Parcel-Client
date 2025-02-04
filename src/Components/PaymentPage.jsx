@@ -9,14 +9,11 @@ const PaymentPage = () => {
   const [clientSecret, setClientSecret] = useState("");
 
   const createPaymentIntent = async () => {
-    const res = await fetch(
-      "https://parcel-server-one.vercel.app/create-payment-intent",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 50 }),
-      }
-    );
+    const res = await fetch("http://localhost:8000/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ amount: 50 }),
+    });
     const data = await res.json();
     setClientSecret(data.clientSecret);
   };

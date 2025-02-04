@@ -11,9 +11,9 @@ const MyReviews = () => {
   useEffect(() => {
     if (user) {
       axios
-        .get(`https://parcel-server-one.vercel.app/my-reviews/${user.email}`)
+        .get(`http://localhost:8000/my-reviews/${user.email}`)
         .then((res) => {
-          console.log("📌 Reviews Data:", res.data);
+          console.log(" Reviews Data:", res.data);
           setReviews(res.data);
         })
         .catch(() => Swal.fire("Error", "Failed to fetch reviews", "error"));

@@ -13,10 +13,8 @@ const FeaturesAndStats = () => {
   const [stats, setStats] = useState({ booked: 0, delivered: 0, users: 0 });
 
   useEffect(() => {
-    axios
-      .get("https://parcel-server-one.vercel.app/stats")
-      .then((res) => setStats(res.data))
-      .catch((err) => console.error("❌ Error fetching stats:", err));
+    axios.get("http://localhost:8000/stats").then((res) => setStats(res.data));
+    // .catch((err) => console.error("❌ Error fetching stats:", err));
   }, []);
 
   return (
@@ -25,7 +23,7 @@ const FeaturesAndStats = () => {
       <h2 className="mb-6 text-3xl font-bold text-center">🚀 Why Choose Us?</h2>
       <div className="grid gap-6 md:grid-cols-3">
         {/* Feature 1 */}
-        <div className="p-6 bg-white rounded-lg shadow-md text-center">
+        <div className="p-6 text-center bg-white rounded-lg shadow-md">
           <FaShieldAlt className="mx-auto text-5xl text-blue-500" />
           <h3 className="mt-4 text-xl font-semibold">
             📦 Secure Parcel Handling
@@ -36,7 +34,7 @@ const FeaturesAndStats = () => {
           </p>
         </div>
         {/* Feature 2 */}
-        <div className="p-6 bg-white rounded-lg shadow-md text-center">
+        <div className="p-6 text-center bg-white rounded-lg shadow-md">
           <FaRocket className="mx-auto text-5xl text-red-500" />
           <h3 className="mt-4 text-xl font-semibold">⚡ Super Fast Delivery</h3>
           <p className="mt-2 text-gray-600">
@@ -45,7 +43,7 @@ const FeaturesAndStats = () => {
           </p>
         </div>
         {/* Feature 3 */}
-        <div className="p-6 bg-white rounded-lg shadow-md text-center">
+        <div className="p-6 text-center bg-white rounded-lg shadow-md">
           <FaBoxOpen className="mx-auto text-5xl text-green-500" />
           <h3 className="mt-4 text-xl font-semibold">💰 Affordable Pricing</h3>
           <p className="mt-2 text-gray-600">
@@ -60,7 +58,7 @@ const FeaturesAndStats = () => {
       </h2>
       <div className="grid gap-6 md:grid-cols-3">
         {/* Stat 1 */}
-        <div className="p-6 bg-white rounded-lg shadow-md text-center">
+        <div className="p-6 text-center bg-white rounded-lg shadow-md">
           <FaTruck className="mx-auto text-5xl text-yellow-500" />
           <h3 className="mt-4 text-xl font-semibold">Total Parcels Booked</h3>
           <p className="mt-2 text-2xl font-bold text-blue-600">
@@ -68,7 +66,7 @@ const FeaturesAndStats = () => {
           </p>
         </div>
         {/* Stat 2 */}
-        <div className="p-6 bg-white rounded-lg shadow-md text-center">
+        <div className="p-6 text-center bg-white rounded-lg shadow-md">
           <FaBoxOpen className="mx-auto text-5xl text-green-500" />
           <h3 className="mt-4 text-xl font-semibold">
             Total Parcels Delivered
@@ -78,7 +76,7 @@ const FeaturesAndStats = () => {
           </p>
         </div>
         {/* Stat 3 */}
-        <div className="p-6 bg-white rounded-lg shadow-md text-center">
+        <div className="p-6 text-center bg-white rounded-lg shadow-md">
           <FaUsers className="mx-auto text-5xl text-purple-500" />
           <h3 className="mt-4 text-xl font-semibold">Total Registered Users</h3>
           <p className="mt-2 text-2xl font-bold text-yellow-600">

@@ -11,7 +11,7 @@ const MyParcels = () => {
 
   useEffect(() => {
     axios
-      .get(`https://parcel-server-one.vercel.app/my-parcels/${user.email}`)
+      .get(`http://localhost:8000/my-parcels/${user.email}`)
       .then((res) => setParcels(res.data))
       .catch(() => Swal.fire("Error", "Failed to fetch parcels", "error"));
   }, [user]);
@@ -33,9 +33,7 @@ const MyParcels = () => {
 
     if (confirm.isConfirmed) {
       try {
-        await axios.put(
-          `https://parcel-server-one.vercel.app/cancel-parcel/${id}`
-        );
+        await axios.put(`http://localhost:8000/cancel-parcel/${id}`);
 
         setParcels((prev) =>
           prev.map((p) => (p._id === id ? { ...p, status: "canceled" } : p))

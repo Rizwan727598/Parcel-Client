@@ -36,8 +36,9 @@ const SignIn = () => {
   const handleGoogleSignIn = async () => {
     try {
       const result = await googleSignIn();
+      console.log(result.user);
       const { displayName, email, photoURL } = result.user;
-      await axios.post("https://parcel-server-one.vercel.app/social-login", {
+      await axios.post("http://localhost:8000/social-login", {
         name: displayName,
         email,
         profileImage: photoURL,
@@ -61,8 +62,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-white dark:bg-gray-800">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="min-h-screen bg-white hero dark:bg-gray-800">
+      <div className="flex-col hero-content lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold text-gray-800 dark:text-gray-100">
             Sign In Now!
@@ -71,11 +72,11 @@ const SignIn = () => {
             Welcome back! Sign in to continue and explore more features.
           </p>
         </div>
-        <div className="card bg-white dark:bg-gray-800 w-full max-w-sm shadow-2xl">
+        <div className="w-full max-w-sm bg-white shadow-2xl card dark:bg-gray-800">
           <form onSubmit={handleSignIn} className="card-body">
             <div className="form-control">
               <label htmlFor="email" className="label">
-                <span className="label-text text-gray-800 dark:text-gray-300">
+                <span className="text-gray-800 label-text dark:text-gray-300">
                   Email
                 </span>
               </label>
@@ -83,13 +84,13 @@ const SignIn = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="input bg-white dark:bg-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="bg-white border-gray-300 input dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
             </div>
             <div className="form-control">
               <label htmlFor="password" className="label">
-                <span className="label-text text-gray-800 dark:text-gray-300">
+                <span className="text-gray-800 label-text dark:text-gray-300">
                   Password
                 </span>
               </label>
@@ -97,30 +98,30 @@ const SignIn = () => {
                 type="password"
                 id="password"
                 name="password"
-                className="input bg-white dark:bg-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="bg-white border-gray-300 input dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
             </div>
-            {error && <p className="text-red-300 text-sm">{error}</p>}
-            <div className="form-control mt-6">
+            {error && <p className="text-sm text-red-300">{error}</p>}
+            <div className="mt-6 form-control">
               <button
                 type="submit"
-                className="btn bg-blue-500 hover:bg-blue-600 text-white font-bold"
+                className="font-bold text-white bg-blue-500 btn hover:bg-blue-600"
               >
                 Sign In
               </button>
             </div>
           </form>
-          <div className="divider text-gray-800 dark:text-gray-300">OR</div>
+          <div className="text-gray-800 divider dark:text-gray-300">OR</div>
           <div className="form-control">
             <button
               onClick={handleGoogleSignIn}
-              className="btn btn-outline border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-300"
+              className="text-gray-800 border-gray-300 btn btn-outline dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-gray-300"
             >
               Sign In with Google
             </button>
           </div>
-          <div className="text-center mt-4">
+          <div className="mt-4 text-center">
             <Link
               to="/forgot-password"
               className="text-sm text-blue-500 hover:underline"
@@ -128,12 +129,12 @@ const SignIn = () => {
               Forgot Password?
             </Link>
           </div>
-          <div className="text-center mt-4">
+          <div className="mt-4 text-center">
             <p className="text-gray-600 dark:text-gray-300">
               Don’t have an account?{" "}
               <Link
                 to="/SignUp"
-                className="text-blue-500 hover:underline font-medium"
+                className="font-medium text-blue-500 hover:underline"
               >
                 Sign Up
               </Link>
