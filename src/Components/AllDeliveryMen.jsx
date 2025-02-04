@@ -7,9 +7,9 @@ const AllDeliveryMen = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/delivery-men")
+      .get("https://parcel-server-one.vercel.app/delivery-men")
       .then((res) => setDeliveryMen(res.data))
-      .catch(() => console.error("Error fetching delivery men"));
+      .catch(() => https://parcel-server-one.vercel.app.error("Error fetching delivery men"));
   }, []);
 
   // Function to color-code reviews

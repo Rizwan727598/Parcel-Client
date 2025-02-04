@@ -37,7 +37,7 @@ const SignIn = () => {
     try {
       const result = await googleSignIn();
       const { displayName, email, photoURL } = result.user;
-      await axios.post("http://localhost:8000/social-login", {
+      await axios.post("https://parcel-server-one.vercel.app/social-login", {
         name: displayName,
         email,
         profileImage: photoURL,

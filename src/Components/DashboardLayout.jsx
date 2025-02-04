@@ -14,7 +14,7 @@ const DashboardLayout = () => {
   useEffect(() => {
     if (!loading && user) {
       axios
-        .get(`http://localhost:8000/user/${user.email}`)
+        .get(`https://parcel-server-one.vercel.app/user/${user.email}`)
         .then((res) => {
           if (res.data?.userType) {
             setUserType(res.data.userType);

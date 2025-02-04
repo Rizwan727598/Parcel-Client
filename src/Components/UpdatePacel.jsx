@@ -20,7 +20,7 @@ const UpdateParcel = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/parcel/${id}`)
+      .get(`https://parcel-server-one.vercel.app/parcel/${id}`)
       .then((res) => {
         setParcel(res.data);
         setFormData(res.data);
@@ -35,7 +35,10 @@ const UpdateParcel = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8000/update-parcel/${id}`, formData);
+      await axios.put(
+        `https://parcel-server-one.vercel.app/update-parcel/${id}`,
+        formData
+      );
       Swal.fire("Success", "Parcel updated successfully!", "success");
       navigate("/dashboard/my-parcels");
     } catch (error) {

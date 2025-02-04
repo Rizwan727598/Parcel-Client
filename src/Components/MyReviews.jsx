@@ -11,7 +11,7 @@ const MyReviews = () => {
   useEffect(() => {
     if (user) {
       axios
-        .get(`http://localhost:8000/my-reviews/${user.email}`)
+        .get(`https://parcel-server-one.vercel.app/my-reviews/${user.email}`)
         .then((res) => {
           console.log("📌 Reviews Data:", res.data);
           setReviews(res.data);

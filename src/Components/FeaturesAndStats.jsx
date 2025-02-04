@@ -14,7 +14,7 @@ const FeaturesAndStats = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/stats")
+      .get("https://parcel-server-one.vercel.app/stats")
       .then((res) => setStats(res.data))
       .catch((err) => console.error("❌ Error fetching stats:", err));
   }, []);

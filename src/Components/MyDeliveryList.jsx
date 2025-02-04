@@ -9,7 +9,7 @@ const MyDeliveryList = () => {
   useEffect(() => {
     if (user) {
       axios
-        .get(`http://localhost:8000/my-deliveries/${user.email}`)
+        .get(`https://parcel-server-one.vercel.app/my-deliveries/${user.email}`)
         .then((res) => {
           console.log("🚚 API Response - Assigned Deliveries:", res.data);
           setParcels(res.data);

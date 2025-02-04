@@ -41,7 +41,7 @@ const SignUp = () => {
       const finalUserType = userType === "Admin" ? "User" : userType;
 
       // Send user data to backend
-      await axios.post("http://localhost:8000/register", {
+      await axios.post("https://parcel-server-one.vercel.app/register", {
         name,
         email,
         profileImage,

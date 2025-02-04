@@ -7,7 +7,7 @@ const TopDeliveryMen = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/top-delivery-men")
+      .get("https://parcel-server-one.vercel.app/top-delivery-men")
       .then((res) => setTopDeliveryMen(res.data))
       .catch((err) =>
         console.error("❌ Error fetching top delivery men:", err)
