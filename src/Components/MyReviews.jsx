@@ -13,7 +13,7 @@ const MyReviews = () => {
       axios
         .get(`http://localhost:8000/my-reviews/${user.email}`)
         .then((res) => {
-          console.log(" Reviews Data:", res.data);
+          // console.log(" Reviews Data:", res.data);
           setReviews(res.data);
         })
         .catch(() => Swal.fire("Error", "Failed to fetch reviews", "error"));
@@ -21,7 +21,7 @@ const MyReviews = () => {
   }, [user]);
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md">
+    <div className="p-6 bg-black rounded-lg shadow-md">
       <h2 className="mb-4 text-2xl font-bold text-center">My Reviews</h2>
 
       {reviews.length === 0 ? (
@@ -31,7 +31,7 @@ const MyReviews = () => {
           {reviews.map((review) => (
             <div
               key={review._id}
-              className="p-4 border rounded-lg shadow-lg bg-gray-100"
+              className="p-4 bg-gray-100 border rounded-lg shadow-lg"
             >
               <div className="flex items-center space-x-4">
                 <img
@@ -46,7 +46,7 @@ const MyReviews = () => {
                   </p>
                 </div>
               </div>
-              <div className="mt-2 flex">
+              <div className="flex mt-2">
                 {[...Array(5)].map((_, index) => (
                   <FaStar
                     key={index}
