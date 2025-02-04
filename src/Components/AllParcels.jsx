@@ -103,7 +103,7 @@ const AllParcels = () => {
                         ? "bg-yellow-500 text-gray-900"
                         : parcel.status === "Delivered"
                         ? "bg-green-500 text-white"
-                        : "bg-blue-500 text-white"
+                        : "bg-blue-400 text-white"
                     }`}
                   >
                     {parcel.status}
