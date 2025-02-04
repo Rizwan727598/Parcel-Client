@@ -82,7 +82,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/signIn"
-            className="px-5 py-2 font-semibold text-white transition bg-teal-400 rounded-full shadow-md hover:bg-teal-600"
+            className="px-5 py-2 font-semibold text-white transition bg-teal-500 rounded-full shadow-md hover:bg-teal-600"
           >
             Login
           </Link>
