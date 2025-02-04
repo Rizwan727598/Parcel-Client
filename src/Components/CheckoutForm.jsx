@@ -29,7 +29,7 @@ const CheckoutForm = () => {
       <CardElement className="p-2 border rounded-md" />
       <button
         type="submit"
-        className="px-4 py-2 text-white bg-green-500 rounded-md"
+        className="px-4 py-3 text-white bg-green-500 rounded-md"
         disabled={!stripe}
       >
         Pay Now
