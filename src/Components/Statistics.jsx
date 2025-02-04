@@ -34,7 +34,7 @@ const Statistics = () => {
       </h2>
 
       {/* Bar Chart: Bookings Statistics */}
-      <div className="p-4 bg-gray-800 rounded-lg shadow-md mt-7">
+      <div className="p-4 mt-6 bg-gray-800 rounded-lg shadow-md">
         <h3 className="text-lg font-semibold text-center text-gray-300">
           📦 Total Bookings & Users
         </h3>
