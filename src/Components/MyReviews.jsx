@@ -21,7 +21,7 @@ const MyReviews = () => {
   }, [user]);
 
   return (
-    <div className="p-6 bg-black rounded-lg shadow-md">
+    <div className="p-6 bg-white rounded-lg shadow-md">
       <h2 className="mb-4 text-2xl font-bold text-center">My Reviews</h2>
 
       {reviews.length === 0 ? (
