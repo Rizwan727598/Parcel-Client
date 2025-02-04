@@ -34,16 +34,16 @@ const Navbar = () => {
       {/* Logo */}
       <Link
         to="/"
-        className="text-xl font-bold text-teal-400 tracking-wide hover:opacity-80 transition"
+        className="text-xl font-bold tracking-wide text-teal-400 transition hover:opacity-80"
       >
         ParcelHub
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex space-x-8 items-center">
+      <div className="items-center hidden space-x-8 md:flex">
         <Link
           to="/"
-          className="text-gray-300 hover:text-teal-300 transition text-lg"
+          className="text-lg text-gray-300 transition hover:text-teal-300"
         >
           Home
         </Link>
@@ -56,23 +56,23 @@ const Navbar = () => {
               <img
                 src={user.photoURL || "/default-avatar.png"}
                 alt="User"
-                className="w-9 h-9 rounded-full border border-teal-400 shadow-md transition hover:scale-105"
+                className="transition border border-teal-400 rounded-full shadow-md w-9 h-9 hover:scale-105"
               />
             </button>
             {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-gray-800 shadow-lg rounded-lg border border-gray-700">
+              <div className="absolute right-0 w-48 mt-2 bg-gray-800 border border-gray-700 rounded-lg shadow-lg">
                 <p className="px-4 py-3 font-semibold text-teal-300">
                   {user.displayName}
                 </p>
                 <Link
                   to="/dashboard"
-                  className="block px-4 py-3 text-gray-200 hover:text-teal-300 hover:bg-gray-700 transition"
+                  className="block px-4 py-3 text-gray-200 transition hover:text-teal-300 hover:bg-gray-700"
                 >
                   Dashboard
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="block w-full text-left px-4 py-3 text-red-400 hover:bg-gray-700 transition"
+                  className="block w-full px-4 py-3 text-left text-red-400 transition hover:bg-gray-700"
                 >
                   Logout
                 </button>
@@ -82,7 +82,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/signIn"
-            className="px-5 py-2 bg-teal-500 text-white font-semibold rounded-full shadow-md hover:bg-teal-600 transition"
+            className="px-5 py-2 font-semibold text-white transition bg-teal-400 rounded-full shadow-md hover:bg-teal-600"
           >
             Login
           </Link>
@@ -91,7 +91,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden text-2xl text-gray-300"
+        className="text-2xl text-gray-300 md:hidden"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         {menuOpen ? <FaTimes /> : <FaBars />}
