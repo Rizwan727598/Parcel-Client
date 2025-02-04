@@ -55,7 +55,7 @@ const AllParcels = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 1, y: 20 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className="p-6 border border-gray-700 rounded-lg shadow-xl bg-gray-900/80 backdrop-blur-lg"
