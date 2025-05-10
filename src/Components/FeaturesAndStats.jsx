@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CountUp from "react-countup";
+import { motion } from "framer-motion";
 import {
   FaShieldAlt,
   FaRocket,
@@ -13,76 +14,102 @@ const FeaturesAndStats = () => {
   const [stats, setStats] = useState({ booked: 0, delivered: 0, users: 0 });
 
   useEffect(() => {
-    axios.get("http://localhost:8000/stats").then((res) => setStats(res.data));
-    // .catch((err) => console.error("❌ Error fetching stats:", err));
+    axios
+      .get("https://parcel-server-one.vercel.app/stats")
+      .then((res) => setStats(res.data))
+      .catch((err) => console.error("Error fetching stats:", err));
   }, []);
 
   return (
-    <div className="p-8 bg-gray-100">
+    <div className="p-12 text-gray-800 bg-white">
       {/* Features Section */}
-      <h2 className="mb-6 text-3xl font-bold text-center">🚀 Why Choose Us?</h2>
-      <div className="grid gap-6 md:grid-cols-3">
-        {/* Feature 1 */}
-        <div className="p-6 text-center bg-white rounded-lg shadow-md">
-          <FaShieldAlt className="mx-auto text-5xl text-blue-500" />
-          <h3 className="mt-4 text-xl font-semibold">
-            📦 Secure Parcel Handling
-          </h3>
-          <p className="mt-2 text-gray-600">
-            We ensure that your parcels are **securely packaged** and handled
-            with care.
-          </p>
-        </div>
-        {/* Feature 2 */}
-        <div className="p-6 text-center bg-white rounded-lg shadow-md">
-          <FaRocket className="mx-auto text-5xl text-red-500" />
-          <h3 className="mt-4 text-xl font-semibold">⚡ Super Fast Delivery</h3>
-          <p className="mt-2 text-gray-600">
-            **Same-day delivery** available for select locations with express
-            service.
-          </p>
-        </div>
-        {/* Feature 3 */}
-        <div className="p-6 text-center bg-white rounded-lg shadow-md">
-          <FaBoxOpen className="mx-auto text-5xl text-green-500" />
-          <h3 className="mt-4 text-xl font-semibold">💰 Affordable Pricing</h3>
-          <p className="mt-2 text-gray-600">
-            Get the **best rates** in the industry for all parcel types.
-          </p>
-        </div>
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="mb-12 text-4xl font-bold text-center"
+      >
+        Why Choose Us?
+      </motion.h2>
+      <div className="grid gap-10 md:grid-cols-3">
+        {[
+          {
+            icon: FaShieldAlt,
+            title: "Secure Handling",
+            desc: "We ensure your parcels are packaged and handled with care.",
+            color: "text-blue-600",
+          },
+          {
+            icon: FaRocket,
+            title: "Fast Delivery",
+            desc: "Same-day delivery available with express service.",
+            color: "text-red-500",
+          },
+          {
+            icon: FaBoxOpen,
+            title: "Affordable Pricing",
+            desc: "Get the best rates for all parcel types.",
+            color: "text-green-600",
+          },
+        ].map((feature, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
+            className="p-6 text-center transition-all duration-300 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg"
+          >
+            <feature.icon className={`mx-auto text-5xl ${feature.color}`} />
+            <h3 className="mt-4 text-2xl font-semibold">{feature.title}</h3>
+            <p className="mt-2 text-gray-600">{feature.desc}</p>
+          </motion.div>
+        ))}
       </div>
 
       {/* Statistics Section */}
-      <h2 className="mt-12 mb-6 text-3xl font-bold text-center">
-        📊 Our Impact
-      </h2>
-      <div className="grid gap-6 md:grid-cols-3">
-        {/* Stat 1 */}
-        <div className="p-6 text-center bg-white rounded-lg shadow-md">
-          <FaTruck className="mx-auto text-5xl text-yellow-500" />
-          <h3 className="mt-4 text-xl font-semibold">Total Parcels Booked</h3>
-          <p className="mt-2 text-2xl font-bold text-blue-600">
-            <CountUp end={stats.booked} duration={3} separator="," />
-          </p>
-        </div>
-        {/* Stat 2 */}
-        <div className="p-6 text-center bg-white rounded-lg shadow-md">
-          <FaBoxOpen className="mx-auto text-5xl text-green-500" />
-          <h3 className="mt-4 text-xl font-semibold">
-            Total Parcels Delivered
-          </h3>
-          <p className="mt-2 text-2xl font-bold text-red-600">
-            <CountUp end={stats.delivered} duration={3} separator="," />
-          </p>
-        </div>
-        {/* Stat 3 */}
-        <div className="p-6 text-center bg-white rounded-lg shadow-md">
-          <FaUsers className="mx-auto text-5xl text-purple-500" />
-          <h3 className="mt-4 text-xl font-semibold">Total Registered Users</h3>
-          <p className="mt-2 text-2xl font-bold text-yellow-600">
-            <CountUp end={stats.users} duration={3} separator="," />
-          </p>
-        </div>
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="mt-16 mb-12 text-4xl font-bold text-center"
+      >
+        Our Impact
+      </motion.h2>
+      <div className="grid gap-10 md:grid-cols-3">
+        {[
+          {
+            icon: FaTruck,
+            title: "Total Parcels Booked",
+            value: stats.booked,
+            color: "text-yellow-500",
+          },
+          {
+            icon: FaBoxOpen,
+            title: "Total Parcels Delivered",
+            value: stats.delivered,
+            color: "text-green-500",
+          },
+          {
+            icon: FaUsers,
+            title: "Total Registered Users",
+            value: stats.users,
+            color: "text-purple-500",
+          },
+        ].map((stat, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
+            className="p-6 text-center transition-all duration-300 bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg"
+          >
+            <stat.icon className={`mx-auto text-5xl ${stat.color}`} />
+            <h3 className="mt-4 text-2xl font-semibold">{stat.title}</h3>
+            <p className="mt-2 text-3xl font-bold text-gray-800">
+              <CountUp end={stat.value} duration={3} separator="," />
+            </p>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

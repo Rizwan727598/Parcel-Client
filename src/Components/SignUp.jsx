@@ -67,8 +67,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-white dark:bg-gray-800">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="min-h-screen bg-white hero dark:bg-gray-800">
+      <div className="flex-col hero-content lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold text-gray-800 dark:text-gray-100">
             Sign Up Now!
@@ -77,11 +77,11 @@ const SignUp = () => {
             Join us today! Fill in your details to create an account.
           </p>
         </div>
-        <div className="card bg-white dark:bg-gray-800 w-full max-w-sm shadow-2xl">
+        <div className="w-full max-w-sm bg-white shadow-2xl card dark:bg-gray-800">
           <form onSubmit={handleSignUp} className="card-body">
             <div className="form-control">
               <label htmlFor="name" className="label">
-                <span className="label-text text-gray-800 dark:text-gray-300">
+                <span className="text-gray-800 label-text dark:text-gray-300">
                   Name
                 </span>
               </label>
@@ -89,13 +89,13 @@ const SignUp = () => {
                 type="text"
                 id="name"
                 name="name"
-                className="input bg-white dark:bg-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="bg-white border-gray-300 input dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
             </div>
             <div className="form-control">
               <label htmlFor="email" className="label">
-                <span className="label-text text-gray-800 dark:text-gray-300">
+                <span className="text-gray-800 label-text dark:text-gray-300">
                   Email
                 </span>
               </label>
@@ -103,13 +103,13 @@ const SignUp = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="input bg-white dark:bg-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="bg-white border-gray-300 input dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
             </div>
             <div className="form-control">
               <label htmlFor="photoURL" className="label">
-                <span className="label-text text-gray-800 dark:text-gray-300">
+                <span className="text-gray-800 label-text dark:text-gray-300">
                   Photo URL
                 </span>
               </label>
@@ -117,12 +117,12 @@ const SignUp = () => {
                 type="text"
                 id="photoURL"
                 name="photoURL"
-                className="input bg-white dark:bg-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="bg-white border-gray-300 input dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
             <div className="form-control">
               <label htmlFor="password" className="label">
-                <span className="label-text text-gray-800 dark:text-gray-300">
+                <span className="text-gray-800 label-text dark:text-gray-300">
                   Password
                 </span>
               </label>
@@ -131,13 +131,13 @@ const SignUp = () => {
                   type={showPassword ? "text" : "password"}
                   id="password"
                   name="password"
-                  className="input bg-white dark:bg-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="bg-white border-gray-300 input dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-3 flex items-center text-gray-600 dark:text-gray-400"
+                  className="absolute inset-y-0 flex items-center text-gray-600 right-3 dark:text-gray-400"
                 >
                   {showPassword ? "Hide" : "Show"}
                 </button>
@@ -145,14 +145,14 @@ const SignUp = () => {
             </div>
             <div className="form-control">
               <label htmlFor="userType" className="label">
-                <span className="label-text text-gray-800 dark:text-gray-300">
+                <span className="text-gray-800 label-text dark:text-gray-300">
                   User Type
                 </span>
               </label>
               <select
                 id="userType"
                 name="userType"
-                className="input bg-white dark:bg-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600"
+                className="bg-white border-gray-300 input dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
                 required
               >
                 <option value="User">User</option>
@@ -162,22 +162,22 @@ const SignUp = () => {
                 </option>
               </select>
             </div>
-            {error && <p className="text-red-500 text-sm">{error}</p>}
-            <div className="form-control mt-6">
+            {error && <p className="text-sm text-red-500">{error}</p>}
+            <div className="mt-6 form-control">
               <button
                 type="submit"
-                className="btn bg-blue-500 text-white hover:bg-blue-600"
+                className="text-white bg-blue-500 btn hover:bg-blue-600"
               >
                 Sign Up
               </button>
             </div>
           </form>
-          <div className="text-center mt-4">
+          <div className="mt-4 text-center">
             <p className="text-gray-600 dark:text-gray-300">
               Already have an account?{" "}
               <a
                 href="/SignIn"
-                className="text-blue-500 hover:underline font-medium"
+                className="font-medium text-blue-500 hover:underline"
               >
                 Login
               </a>

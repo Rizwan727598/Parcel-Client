@@ -36,9 +36,9 @@ const SignIn = () => {
   const handleGoogleSignIn = async () => {
     try {
       const result = await googleSignIn();
-      console.log(result.user);
+      // console.log(result.user);
       const { displayName, email, photoURL } = result.user;
-      await axios.post("http://localhost:8000/social-login", {
+      await axios.post("https://parcel-server-one.vercel.app/social-login", {
         name: displayName,
         email,
         profileImage: photoURL,
@@ -52,6 +52,7 @@ const SignIn = () => {
       });
       navigate("/");
     } catch (error) {
+      console.log(error);
       setError("Google Login failed. Please try again.");
       Swal.fire({
         icon: "error",

@@ -58,10 +58,13 @@ const MyProfile = () => {
   const updateUserProfile = async (photoURL) => {
     try {
       await updateProfile(user, { displayName: formData.name, photoURL });
-      await axios.put(`http://localhost:8000/update-profile/${user.email}`, {
-        name: formData.name,
-        photoURL,
-      });
+      await axios.put(
+        `https://parcel-server-one.vercel.app/update-profile/${user.email}`,
+        {
+          name: formData.name,
+          photoURL,
+        }
+      );
 
       Swal.fire("Success", "Profile updated successfully!", "success").then(
         () => {
@@ -74,7 +77,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="max-w-lg p-6 mx-auto mt-10 bg-gray-900/80 backdrop-blur-lg shadow-xl border border-gray-700 rounded-lg">
+    <div className="max-w-lg p-6 mx-auto mt-10 border border-gray-700 rounded-lg shadow-xl bg-gray-900/80 backdrop-blur-lg">
       <h2 className="mb-6 text-3xl font-bold text-center text-teal-400">
         👤 My Profile
       </h2>
@@ -99,7 +102,7 @@ const MyProfile = () => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full mt-1 p-3 rounded-lg bg-gray-800 border border-teal-500 text-white"
+          className="w-full p-3 mt-1 text-white bg-gray-800 border border-teal-500 rounded-lg"
         />
       </div>
 
@@ -109,13 +112,13 @@ const MyProfile = () => {
           type="email"
           value={formData.email}
           disabled
-          className="w-full mt-1 p-3 rounded-lg bg-gray-700 text-gray-400 cursor-not-allowed"
+          className="w-full p-3 mt-1 text-gray-400 bg-gray-700 rounded-lg cursor-not-allowed"
         />
       </div>
 
       <button
         onClick={handleProfileUpdate}
-        className="w-full mt-6 p-3 text-white bg-teal-500 hover:bg-teal-600 rounded-lg font-bold transition"
+        className="w-full p-3 mt-6 font-bold text-white transition bg-teal-500 rounded-lg hover:bg-teal-600"
       >
         🔄 Update Profile
       </button>

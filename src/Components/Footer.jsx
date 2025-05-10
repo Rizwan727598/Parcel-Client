@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaEnvelope,
   FaPhone,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -15,38 +16,80 @@ const Footer = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-gray-900/80 backdrop-blur-lg shadow-xl border-t border-gray-700 text-gray-300 pt-10"
+      className="pt-12 pb-8 text-gray-700 bg-white border-t border-gray-200 shadow-lg"
     >
-      <div className="max-w-screen-xl mx-auto px-6">
+      <div className="max-w-screen-xl px-6 mx-auto">
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-4 md:text-left">
           {/* Brand Section */}
           <div>
-            <h2 className="text-2xl font-bold text-teal-400">Parcel Hub</h2>
-            <p className="mt-2 text-gray-400">Your trusted delivery partner</p>
+            <h2 className="text-2xl font-bold text-teal-600">ParcelHub</h2>
+            <p className="mt-3 text-gray-600">
+              Your trusted delivery partner. Fast, reliable, and secure.
+            </p>
+            <div className="flex justify-center mt-4 space-x-4 md:justify-start">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 transition duration-300 hover:text-teal-600"
+              >
+                <FaFacebook className="text-xl" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 transition duration-300 hover:text-teal-600"
+              >
+                <FaTwitter className="text-xl" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 transition duration-300 hover:text-teal-600"
+              >
+                <FaInstagram className="text-xl" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-teal-400">Quick Links</h3>
-            <ul className="mt-3 space-y-2">
+            <h3 className="mb-4 text-lg font-semibold text-teal-600">
+              Quick Links
+            </h3>
+            <ul className="space-y-3">
               <li>
-                <Link to="/" className="hover:text-teal-300 transition">
+                <Link
+                  to="/"
+                  className="text-gray-600 transition duration-300 hover:text-teal-600"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-teal-300 transition">
+                <Link
+                  to="/about"
+                  className="text-gray-600 transition duration-300 hover:text-teal-600"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-teal-300 transition">
+                <Link
+                  to="/services"
+                  className="text-gray-600 transition duration-300 hover:text-teal-600"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-teal-300 transition">
+                <Link
+                  to="/contact"
+                  className="text-gray-600 transition duration-300 hover:text-teal-600"
+                >
                   Contact
                 </Link>
               </li>
@@ -55,54 +98,80 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold text-teal-400">Contact Us</h3>
-            <p className="mt-3 flex items-center justify-center md:justify-start space-x-2">
-              <FaEnvelope className="text-teal-400" />{" "}
-              <span>support@parcelhub.com</span>
+            <h3 className="mb-4 text-lg font-semibold text-teal-600">
+              Contact Us
+            </h3>
+            <div className="space-y-3">
+              <p className="flex items-center space-x-2">
+                <FaEnvelope className="text-teal-600" />
+                <span className="text-gray-600 transition duration-300 hover:text-teal-600">
+                  support@parcelhub.com
+                </span>
+              </p>
+              <p className="flex items-center space-x-2">
+                <FaPhone className="text-teal-600" />
+                <span className="text-gray-600 transition duration-300 hover:text-teal-600">
+                  +1 234 567 890
+                </span>
+              </p>
+              <p className="flex items-center space-x-2">
+                <FaMapMarkerAlt className="text-teal-600" />
+                <span className="text-gray-600 transition duration-300 hover:text-teal-600">
+                  123 Delivery St, City, Country
+                </span>
+              </p>
+            </div>
+          </div>
+
+          {/* Newsletter Subscription */}
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-teal-600">
+              Newsletter
+            </h3>
+            <p className="mb-4 text-gray-600">
+              Subscribe to our newsletter for updates and offers.
             </p>
-            <p className="mt-2 flex items-center justify-center md:justify-start space-x-2">
-              <FaPhone className="text-teal-400" /> <span>+1 234 567 890</span>
-            </p>
+            <form className="flex flex-col space-y-3">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="px-4 py-2 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 text-white transition duration-300 bg-teal-600 rounded-lg hover:bg-teal-700"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 my-6"></div>
+        <div className="my-8 border-t border-gray-200"></div>
 
-        {/* Social Media & Copyright */}
-        <div className="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
-          {/* Social Icons */}
-          <div className="flex space-x-4 text-xl">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-teal-300 transition"
-            >
-              <FaFacebook className="cursor-pointer" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-teal-300 transition"
-            >
-              <FaTwitter className="cursor-pointer" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-teal-300 transition"
-            >
-              <FaInstagram className="cursor-pointer" />
-            </a>
-          </div>
-
+        {/* Bottom Section */}
+        <div className="flex flex-col items-center justify-between text-center md:flex-row md:text-left">
           {/* Copyright */}
-          <p className="mt-4 md:mt-0 text-gray-400">
+          <p className="text-gray-600">
             © {new Date().getFullYear()} Parcel Hub. All rights reserved.
           </p>
+
+          {/* Additional Links */}
+          <div className="flex mt-4 space-x-4 md:mt-0">
+            <Link
+              to="/privacy-policy"
+              className="text-gray-600 transition duration-300 hover:text-teal-600"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/terms-of-service"
+              className="text-gray-600 transition duration-300 hover:text-teal-600"
+            >
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </motion.footer>
